@@ -1,40 +1,54 @@
+#include <sstream>
 #include "PhoneBook.h"
 
 void PhoneBook::addUser() {
-    if (this->index == 8)
-        this->index = 0;
-    this->contacts[this->index].AddContact();
-    this->index++;
+    if (index == 8)
+        index = 0;
+    contacts[index].AddContact();
+    index++;
+	if(size < 8)
+		size++;
 }
 
 PhoneBook::PhoneBook() {
-    this->index = 0;
-}
-
-PhoneBook::~PhoneBook() {
-
+    index = 0;
+	size = 0;
 }
 
 void PhoneBook::SearchUser() {
     this->PrintContacts();
     std::string index;
     std::cout << "Enter index: ";
-    std::cin >> index;
+	std::getline(std::cin, index);
     this->PrintContactInfo(index);
 }
 
 void PhoneBook::PrintContacts() {
-    std::cout << "     index|first name| last name|  nickname" << std::endl;
-    for (int i = 0; i < this->index; i++) {
-        this->contacts[i].PrintContact(i);
+    std::cout << "|     index|first name| last name|  nickname|" << std::endl;
+    for (int i = 0; i < size; i++) {
+        contacts[i].PrintContact(i);
     }
 }
 
 void PhoneBook::PrintContactInfo(std::string index) {
-    int i = std::(index);
-    if (i < 0 || i > 7 || i >= this->index) {
-        std::cout << "Wrong index" << std::endl;
-        return;
-    }
+
+	std::istringstream is(index);
+	int i;
+	if (!(is >> i)){
+		std::cout << "Wrong index" << std::endl;
+		return;
+	}if (index.length() != 1) {
+		std::cout << "Wrong index" << std::endl;
+		return;
+	}
+	if (i < 0 || i > 7 || i >= this->size) {
+		std::cout << "Wrong index" << std::endl;
+		return;
+	}
+	contacts[i].PrintContactInfo();
+}
+
+PhoneBook::~PhoneBook()
+{
 
 }

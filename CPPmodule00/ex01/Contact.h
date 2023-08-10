@@ -2,6 +2,7 @@
 #define C__PROJECT_CONTACT_H
 
 #include "iostream"
+#include <iomanip>
 
 class Contact {
 private:
@@ -16,9 +17,8 @@ public:
     void ValidateInfo(std::string &data);
     void AddInfo(std::string &field, const std::string& field_name);
     void AddContact();
-
     void PrintContact(int i);
+	void PrintContactInfo();
 };
-
 
 #endif //C__PROJECT_CONTACT_H

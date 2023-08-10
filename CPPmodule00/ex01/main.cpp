@@ -12,7 +12,7 @@ int main() {
         } else if (command == "ADD") {
             phoneBook.addUser();
         } else if (command == "SEARCH") {
-            //phoneBook.SearchUser();
+            phoneBook.SearchUser();
         }
     }
     return 0;
