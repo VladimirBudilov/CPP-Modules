@@ -14,11 +14,9 @@ public:
 	Fixed(const int value);
 	Fixed(const float value);
 	Fixed &operator=(const Fixed &fixed);
-	Fixed &operator<<(const int shift);
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
 	float toFloat( void ) const;
 	int toInt( void ) const;
 };
-
 #endif //C__CIRCLE_FIXED_H
