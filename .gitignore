@@ -22,7 +22,7 @@
 
 # Compiled Static libraries
 *.lai
-*.la
+*.la.gitignore
 *.a
 *.lib
 
@@ -32,5 +32,6 @@
 *.app
 
 .idea
+.vscode
 .DS_Store
-
+```
