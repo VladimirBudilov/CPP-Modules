@@ -8,12 +8,12 @@ int main( void ) {
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
 	std::cout << c.getRawBits() << std::endl;
-/*	a.setRawBits( 42 );
+	a.setRawBits( 42 );
 	b.setRawBits( 21 );
 	c.setRawBits( 84 );
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
 	std::cout << c.getRawBits() << std::endl;
-	system("leaks ex00");*/
+	//system("leaks ex00");
 	return 0;
 }

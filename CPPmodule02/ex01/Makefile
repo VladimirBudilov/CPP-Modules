@@ -2,7 +2,7 @@ NAME 		=	ex01
 CC 			=	c++
 CPPFLAGS 	=	-std=c++98 -Wall -Wextra -Werror -pedantic
 SRCS 		=	$(wildcard *.cpp)
-HEADER		=	$(wildcard *.hpp)
+HEADER		=	$(wildcard *.h)
 OBJS 		=	$(patsubst %.cpp, %.o, $(SRCS))
 RM 			= 	rm -fr
 

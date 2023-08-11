@@ -1,4 +1,4 @@
-NAME 		=	ex00
+NAME 		=	ex02
 CC 			=	c++
 CPPFLAGS 	=	-std=c++98 -Wall -Wextra -Werror -pedantic
 SRCS 		=	$(wildcard *.cpp)
