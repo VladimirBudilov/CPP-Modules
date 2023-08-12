@@ -14,7 +14,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
 
 ClapTrap::ClapTrap(const std::string &name)
 {
-	std::cout << "ClapTrap Constructor with parameter called" << std::endl;
+	std::cout << "ClapTrap name constructor called" << std::endl;
 	_name = name;
 	_hitPoints = 10;
 	_energyPoints = 10;
@@ -56,7 +56,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 		std::cout << "ClapTrap " << _name << " is already dead" << std::endl;
 		return;
 	}
-	if ((int)amount > _hitPoints) {
+	if ((int) amount > _hitPoints) {
 		std::cout << "ClapTrap " << _name << " takes " << _hitPoints << " damage" << std::endl;
 		_hitPoints = 0;
 	} else {
@@ -71,7 +71,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap " << _name << " is dead and can't be repaired" << std::endl;
 		return;
 	}
-	if(_energyPoints <= 0) {
+	if (_energyPoints <= 0) {
 		std::cout << "ClapTrap " << _name << " has not enough energy to be repaired" << std::endl;
 		return;
 	}
@@ -85,5 +85,3 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
 	std::cout << "ClapTrap Copy constructor called" << std::endl;
 	*this = copy;
 }
-
-

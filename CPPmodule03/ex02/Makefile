@@ -1,4 +1,4 @@
-NAME 		=	ex00
+NAME 		=	ex02
 CC 			=	c++
 CPPFLAGS 	=	-std=c++98 -Wall -Wextra -Werror -pedantic
 SRCS 		=	$(wildcard *.cpp)
@@ -30,5 +30,6 @@ clean:
 fclean: clean
 	@$(RM) $(NAME)
 
+re:	fclean all
 
 .PHONY: all clean fclean re me bonus

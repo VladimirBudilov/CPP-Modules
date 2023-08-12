@@ -1,4 +1,5 @@
 #include "ScavTrap.h"
+#include "FragTrap.h"
 
 int main( void ) {
 
@@ -15,8 +16,6 @@ int main( void ) {
 		a.beRepaired(5);
 		a.attack("Boba");
 		b.beRepaired(3);
-		for (int i = 0; i < 12; i++)
-			b.attack("Baba");
 		b.beRepaired(3);
 		std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
 	}
@@ -36,6 +35,23 @@ int main( void ) {
 		d.takeDamage(101);
 		d.takeDamage(15);
 		d.attack("SavageBiba-clone");
+		std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
+	}
+	std::cout << "\n\n### TESTING FRAGTRAP ###\n" << std::endl;
+	{
+		std::cout << "\033[34mConstructing\033[0m" << std::endl;
+		FragTrap e;
+		FragTrap f("Biba");
+
+		std::cout << "\033[34mTesting\033[0m" << std::endl;
+		e.highFivesGuys();
+		e.attack("some random Boba");
+		e.takeDamage(101);
+		e.takeDamage(1);
+		e.attack("some random Boba");
+		f.highFivesGuys();
+		// for(int i = 0; i < 101; i++)
+		// 	f.attack("FragTrap-clone");
 		std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
 	}
 	return 0;

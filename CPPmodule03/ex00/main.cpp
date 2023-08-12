@@ -2,20 +2,20 @@
 
 int main( void ) {
 
-	ClapTrap clapTrap("ClapTrap");
-	ClapTrap clapTrap1(clapTrap);
-	ClapTrap clapTrap2("ClapTrap2");
+	std::cout << "\033[34mConstructing\033[0m" << std::endl;
+	ClapTrap a;
+	ClapTrap b("Biba");
 
-	clapTrap.attack("ClapTrap2");
-	clapTrap2.takeDamage(5);
-	clapTrap2.beRepaired(5);
-	clapTrap.attack("ClapTrap2");
-	clapTrap2.takeDamage(100);
-	clapTrap2.beRepaired(100);
-	clapTrap.attack("ClapTrap2");
-	clapTrap2.takeDamage(1);
-	clapTrap2.beRepaired(1);
-	for(int i = 0; i < 12; i++)
-		clapTrap1.attack("ClapTrap2");
+	std::cout << "\033[34mTesting\033[0m" << std::endl;
+	a.attack("Boba");
+	a.takeDamage(10);
+	a.takeDamage(10);
+	a.beRepaired(5);
+	a.attack("Boba");
+	b.beRepaired(3);
+	for (int i = 0; i < 12; i++)
+		b.attack("Baba");
+	b.beRepaired(3);
+	std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
 	return 0;
 }
