@@ -3,6 +3,10 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "ScavTrap default constructor called" << std::endl;
+	_name = "default ScavTrap";
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)
@@ -42,8 +46,7 @@ void ScavTrap::attack(const std::string &target)
 	}
 	std::cout << "ScavTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!"
 			  << std::endl;
-	_energyPoints--;
-}
+	_energyPoints--;}
 
 void ScavTrap::guardGate()
 {
