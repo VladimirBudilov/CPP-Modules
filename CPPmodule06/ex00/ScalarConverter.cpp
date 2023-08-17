@@ -20,6 +20,51 @@ ScalarConverter::~ScalarConverter()
 {
 }
 
+bool ScalarConverter::IsChar(const std::string &string)
+{
+	return string.length() == 1 && !std::isdigit(string[0]);
+}
+
+bool ScalarConverter::IsInt(const std::string &string)
+{
+	std::istringstream inputStringStream(string);
+	int number;
+	inputStringStream >> number;
+	return !inputStringStream.fail() && inputStringStream.eof();
+}
+
+bool ScalarConverter::IsFloat(const std::string &string)
+{
+	const char* constString = string.c_str();
+	char* endPtr;
+	double number = atof(constString);
+	if (number == 0 && constString[0] != '0')
+		return false;
+	
+	while (*endPtr != '\0')
+	{
+		if (*endPtr != 'f')
+			return false;
+		++endPtr;
+	}
+	return true;
+}
+
+bool ScalarConverter::isDouble(const std::string &str)
+{
+	const char* cstr = str.c_str();
+	char* endptr;
+	std::strtod(cstr, &endptr);
+	if (endptr == cstr)
+		return false;
+	while (*endptr != '\0')
+	{
+		if (*endptr != 'f')
+			return false;
+		++endptr;
+	}
+	return true;
+}
 
 
 void ScalarConverter::convertToChar(const std::string &str)
@@ -59,18 +104,7 @@ void ScalarConverter::convert(const std::string &str)
 
 }
 
-bool ScalarConverter::isChar(const std::string &str)
-{
-	return str.length() == 1 && !std::isdigit(str[0]);
-}
 
-bool ScalarConverter::isInt(const std::string &str)
-{
-	std::istringstream iss(str);
-	int n;
-	iss >> n;
-	return !iss.fail() && iss.eof();
-}
 
 const char *ScalarConverter::ImpossibleException::what() const throw()
 {

@@ -19,13 +19,13 @@ void    ScalarConverter::convertChar(const std::string &str) {
     std::cout << "double: " << static_cast<double>(c) <<".0"<< std::endl;
 /*---------------------------------------------------------*/}
 
-bool ScalarConverter::isInt(const std::string &str)   {
-/*---------------------------------------------------*/
+/*bool ScalarConverter::isInt(const std::string &str)   {
+*//*---------------------------------------------------*//*
     std::istringstream iss(str);
     int n;
     iss >> n;
     return !iss.fail() && iss.eof();
-/*--------------------------------------------------*/}
+*//*--------------------------------------------------*//*}*/
 
 void ScalarConverter::convertInt(const std::string &str)  {
 /*-------------------------------------------------------*/
@@ -42,8 +42,8 @@ void ScalarConverter::convertInt(const std::string &str)  {
     std::cout << "float:  " << static_cast<float>(n) <<".0f"<< std::endl;
 /*------------------------------------------------------*/}
 
-bool ScalarConverter::isFloat(const std::string &str) {
-/*---------------------------------------------------*/
+/*bool ScalarConverter::isFloat(const std::string &str) {
+*//*---------------------------------------------------*//*
     const char* cstr = str.c_str();
     char* endptr;
     std::strtof(cstr, &endptr);
@@ -56,7 +56,7 @@ bool ScalarConverter::isFloat(const std::string &str) {
         ++endptr;
     }
     return true;
-/*--------------------------------------------------*/}
+*//*--------------------------------------------------*//*}*/
 
 bool pl(const std::string &str)
 {
@@ -83,21 +83,21 @@ void ScalarConverter::convertFloat(const std::string &str) {
     std::cout << "double: " << static_cast<double>(number) << std::endl;
 /*-------------------------------------------------------*/}
 
-bool ScalarConverter::isDouble(const std::string &str) {
-/*----------------------------------------------------*/
+/*bool ScalarConverter::isDouble(const std::string &str) {
+*//*----------------------------------------------------*//*
     const char* cstr = str.c_str();
     char* endptr;
     std::strtod(cstr, &endptr);
     if (endptr == cstr)
         return false;
-    while (*endptr != '\0')
+    while (*endptr != '\0')~
     {
         if (*endptr != 'f')
             return false;
         ++endptr;
     }
     return true;
-/*---------------------------------------------------*/}
+*//*---------------------------------------------------*//*}*/
 
 void ScalarConverter::convertDouble(const std::string &str) {
 /*---------------------------------------------------------*/
