@@ -5,8 +5,6 @@
 
 struct Data {
 	std::string s1;
-	int n;
-	std::string s2;
 };
 
 
@@ -17,9 +15,11 @@ private:
 	Serializer(const Serializer &copy);
 	Serializer &operator=(const Serializer &copy);
 public:
-	static void *serialize(void);
-	static Data *deserialize(void *raw);
+	static uintptr_t serialize(Data* ptr);
+	static Data* deserialize(uintptr_t raw);
 };
+
+std::ostream &operator<<(std::ostream &stream, const Data &obj);
 
 
 #endif //C__CIRCLE_SERIALIZER_H
