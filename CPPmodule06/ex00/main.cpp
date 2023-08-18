@@ -1,8 +1,11 @@
 #include "ScalarConverter.h"
 
-int main( void ) {
+int main( int argc, char **argv ) {
 
-	ScalarConverter::convert("0");
-	ScalarConverter::convert("nan");
+	if (argc != 2) {
+		std::cout << "Wrong number of arguments" << std::endl;
+		return 1;
+	}
+	ScalarConverter::convert(argv[1]);
 	return 0;
 }

@@ -6,7 +6,7 @@ HEADER		=	$(wildcard *.h)
 OBJS 		=	$(patsubst %.cpp, %.o, $(SRCS))
 RM 			= 	rm -fr
 
-all: $(NAME) run
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
