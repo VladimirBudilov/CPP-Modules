@@ -62,15 +62,20 @@ bool ScalarConverter::IsFloat(const std::string &string)
 
 bool ScalarConverter::IsDouble(const std::string &string)
 {
+	int counter = 0;
 	const char *constString = string.c_str();
 	char *endptr;
 	std::strtod(constString, &endptr);
 	if (endptr == constString)
 		return false;
+	double number = atof(constString);
+	if (number == 0 && constString[0] != '0')
+		return false;
 	while (*endptr != '\0') {
-		if (*endptr != 'f')
+		if (*endptr != 'f' || counter > 1)
 			return false;
 		++endptr;
+		++counter;
 	}
 	return true;
 }
@@ -173,24 +178,44 @@ bool ScalarConverter::IsScienceValue(const std::string &string)
 
 int ScalarConverter::GetType(const std::string &basicString)
 {
+	if(!IsScienceValue(basicString) && !IsDigit(basicString))
+		throw ImpossibleException();
 	if (IsChar(basicString))
 		return CHAR;
-	else if (IsInt(basicString))
+	if (IsInt(basicString))
 		return INT;
-	else if (IsFloat(basicString))
+	if (IsFloat(basicString))
 		return FLOAT;
-	else if (IsDouble(basicString))
+	if (IsDouble(basicString))
 		return DOUBLE;
 	throw ImpossibleException();
 }
 
+bool ScalarConverter::IsDigit(const std::string &string)
+{
+	int dot_counter = 0;
+	if(string.length() == 0)
+		return false;
+	for (size_t i = 0; i < string.length(); ++i) {
+		if (string[i] == '-' || string[i] == '+') {
+			if (i != 0)
+				return false;
+		}
+		else if (string[i] == '.') {
+			if (i == 0 || i == string.length() - 1)
+				return false;
+			if(dot_counter > 1)
+				return false;
+			++dot_counter;
+		}
+		else if (isdigit(string[i]) == 0 && string[i] != 'f' && string[i] != '.')
+			return false;
+	}
+	return true;
+}
 
 const char *ScalarConverter::ImpossibleException::what() const throw()
 {
 	return "impossible";
 }
 
-const char *ScalarConverter::NonDisplayableException::what() const throw()
-{
-	return "Non displayable";
-}
