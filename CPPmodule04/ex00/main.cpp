@@ -1,5 +1,7 @@
 #include "Cat.h"
 #include "Dog.h"
+#include "WrongCat.h"
+
 
 int main()
 {
@@ -11,6 +13,16 @@ int main()
     i->makeSound(); //will output the cat sound!
     j->makeSound();
     meta->makeSound();
-    //system("leaks ex00");
+	delete meta;
+	delete j;
+	delete i;
+
+	const WrongAnimal* wrongMeta = new WrongAnimal();
+	const WrongAnimal* wrongCat = new WrongCat();
+	std::cout << wrongCat->getType() << " " << std::endl;
+	wrongCat->makeSound(); //will output the WrongAnimal sound!
+	wrongMeta->makeSound();
+	delete wrongMeta;
+	delete wrongCat;
     return 0;
 }

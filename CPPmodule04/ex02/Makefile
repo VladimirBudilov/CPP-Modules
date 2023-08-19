@@ -1,4 +1,4 @@
-NAME 		=	ex00
+NAME 		=	ex01
 CC 			=	c++
 CPPFLAGS 	=	-std=c++98 -Wall -Wextra -Werror -pedantic
 SRCS 		=	$(wildcard *.cpp)
@@ -9,16 +9,6 @@ RM 			= 	rm -fr
 all: $(NAME) run
 
 $(NAME): $(OBJS)
-<<<<<<< HEAD
-	@$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
-	@tput setaf 2 && printf "$(NAME) sucessfully created.\n\n\n"
-	@tput setaf 255
-
-%.o: %.cpp $(HEADER)
-	@$(CC) $(CPPFLAGS) -c $< -o $@
-	@tput setaf 3 && printf "created $(notdir $@)\n"
-	@tput setaf 255
-=======
 	$(CC) $(CPPFLAGS) $(SRCS) -o $(NAME)
 	@tput setaf 3 && printf "\n"
 	@tput setaf 255
@@ -26,7 +16,6 @@ $(NAME): $(OBJS)
 %.o: %.cpp $(HEADER)
 	$(CC) $(CPPFLAGS) -c $< -o $@
 
->>>>>>> cpp04
 
 runPrepare: $(NAME)
 	@./$(NAME)
@@ -35,18 +24,10 @@ run : runPrepare fclean
 
 clean:
 	@$(RM) $(OBJS)
-<<<<<<< HEAD
-	@tput setaf 255
-=======
->>>>>>> cpp04
 
 fclean: clean
 	@$(RM) $(NAME)
 
-<<<<<<< HEAD
-=======
 re: fclean all
-
->>>>>>> cpp04
 
 .PHONY: all clean fclean re me bonus

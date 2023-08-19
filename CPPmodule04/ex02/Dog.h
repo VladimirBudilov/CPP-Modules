@@ -10,8 +10,8 @@ class Dog : public Animal{
     Dog(const Dog &copy);
     Dog &operator=(const Dog &copy);
     void makeSound() const;
-
+private:
+	Brain *_brain;
 };
-
 
 #endif //C__PROJECT_DOG_H

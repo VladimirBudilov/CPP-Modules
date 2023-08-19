@@ -4,14 +4,14 @@
 #include "Animal.h"
 
 class Dog : public Animal{
-    public:
+public:
     Dog();
     virtual ~Dog();
     Dog(const Dog &copy);
     Dog &operator=(const Dog &copy);
-    void makeSound() const;
-
+	void makeSound() const;
+private:
+	Brain *_brain;
 };
-
 
 #endif //C__PROJECT_DOG_H

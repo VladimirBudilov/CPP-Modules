@@ -10,6 +10,8 @@ public:
     Cat(const Cat &copy);
     Cat &operator=(const Cat &copy);
     void makeSound() const;
+private:
+	Brain *_brain;
 };
 
 

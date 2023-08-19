@@ -2,6 +2,7 @@
 #define C__PROJECT_ANIMAL_H
 
 #include "iostream"
+#include "Brain.h"
 
 class Animal {
 public:
@@ -10,7 +11,7 @@ public:
     Animal &operator=(const Animal &copy);
 	virtual ~Animal();
 
-    virtual void makeSound() const;
+    virtual void makeSound() const = 0;
     virtual std::string getType() const;
 protected:
 	std::string _type;

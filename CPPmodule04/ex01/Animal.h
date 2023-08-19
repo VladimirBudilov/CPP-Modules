@@ -2,6 +2,7 @@
 #define C__PROJECT_ANIMAL_H
 
 #include "iostream"
+#include "Brain.h"
 
 class Animal {
 public:
