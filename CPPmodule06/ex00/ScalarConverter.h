@@ -29,7 +29,6 @@ private:
 	static void convertToFloat(std::string const &str);
 	static void convertToDouble(std::string const &str);
 	class ImpossibleException : public std::exception {
-	public:
 		virtual const char *what() const throw();
 	};
 public:

@@ -11,4 +11,5 @@ int main( int argc, char **argv) {
 	uintptr_t raw = Serializer::serialize(data);
 	Data *data2 = Serializer::deserialize(raw);
 	std::cout << data2->s1 << std::endl;
+	delete data;
 }

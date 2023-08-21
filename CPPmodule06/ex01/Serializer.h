@@ -21,5 +21,4 @@ public:
 
 std::ostream &operator<<(std::ostream &stream, const Data &obj);
 
-
 #endif //C__CIRCLE_SERIALIZER_H

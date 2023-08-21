@@ -27,7 +27,7 @@ uintptr_t Serializer::serialize(Data *ptr)
 
 Data *Serializer::deserialize(uintptr_t raw)
 {
-	return (reinterpret_cast<Data*>(raw));
+	return (reinterpret_cast<Data *>(raw));
 }
 
 std::ostream &operator<<(std::ostream &stream, const Data &obj)

@@ -3,9 +3,6 @@
 
 #include <cstdlib>
 #include <iostream>
-#include "A.h"
-#include "B.h"
-#include "C.h"
 
 class Base {
 public:
@@ -15,5 +12,9 @@ public:
 Base * generate(void);
 void identify(Base* p);
 void identify(Base& p);
+
+#include "A.h"
+#include "B.h"
+#include "C.h"
 
 #endif //C__PROJECT_BASE_H
