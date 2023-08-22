@@ -4,17 +4,24 @@
 #include "iostream"
 
 template <typename T>
-void iter(T *arr, size_t len, void (*f)(T&)) {
+int print(T &i) {
+	std::cout << i << " ";
+	return 0;
+}
+
+template <typename T, typename U>
+void iter(T *arr, size_t len, U (*f)(T&)) {
 	for (size_t i = 0; i < len; i++) {
 		f(arr[i]);
 	}
 }
 
-template <typename T, typename G>
-void iter(T *arr, size_t len,  void (*f)(G&)) {
+template <typename T, typename U, typename G>
+void iter(T *arr, size_t len,  U (*f)(G&)) {
 	for (size_t i = 0; i < len; i++) {
 		f(arr[i]);
 	}
 }
+
 
 #endif //C__CIRCLE_ITER_H
