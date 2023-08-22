@@ -5,7 +5,7 @@
 
 template <typename T>
 void print(T &i) {
-	std::cout << i << " ";
+	std::cout << i << std::endl;
 }
 
 template <typename T>
