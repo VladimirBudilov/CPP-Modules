@@ -25,6 +25,8 @@ Span &Span::operator=(const Span &other)
 
 void Span::addNumber(int n)
 {
+    if(_N == 0)
+        throw std::out_of_range("Span is empty");
 	if (_arr.size() >= _N)
 		throw std::out_of_range("Span is full");
 	_arr.push_back(n);
@@ -32,6 +34,8 @@ void Span::addNumber(int n)
 
 int Span::shortestSpan()
 {
+    if(_N == 0)
+        throw std::out_of_range("Span is empty");
 	if (_arr.size() <= 1)
 		throw std::out_of_range("Span is empty or has only one element");
 	std::vector<int> tmp = _arr;
@@ -47,6 +51,8 @@ int Span::shortestSpan()
 
 int Span::longestSpan()
 {
+    if(_N == 0)
+        throw std::out_of_range("Span is empty");
 	if (_arr.size() <= 1)
 		throw std::out_of_range("Span is empty or has only one element");
 	std::vector<int> tmp = _arr;
