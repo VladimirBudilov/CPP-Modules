@@ -65,7 +65,7 @@ Span::~Span()
 
 }
 
-void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+void Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
 	if (_arr.size() + std::distance(begin, end) > _N)
 		throw std::out_of_range("Span is full");
