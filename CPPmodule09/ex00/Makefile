@@ -1,6 +1,6 @@
 NAME 		=	btc
 CC 			=	c++
-CPPFLAGS 	=	-std=c++98 -Wall -Wextra -Werror -pedantic
+CPPFLAGS 	=	#-std=c++98 -Wall -Wextra -Werror -pedantic
 SRCS 		=	$(wildcard *.cpp)
 HEADER		=	$(wildcard *.hpp)
 OBJS 		=	$(patsubst %.cpp, %.o, $(SRCS))
