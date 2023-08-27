@@ -2,12 +2,12 @@
 
 int main( void ) {
 
-    int vectorSize = 21;
+    int vectorSize = 12;
     std::vector<unsigned int> test;
     test.reserve(vectorSize);
-for (int i = 0; i < vectorSize; i++) {
+for (int i = vectorSize; i > 0 ; i--) {
     //fill the vector with random numbers
-    test.push_back(rand() % 100);
+    test.push_back(i);
     }
     //Print unsorted data
     std::cout << "Unsorted data: ";

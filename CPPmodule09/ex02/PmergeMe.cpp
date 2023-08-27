@@ -2,7 +2,8 @@
 std::vector<unsigned int> PmergeMe::_unsortedData;
 std::vector<std::pair<unsigned int, unsigned int> > PmergeMe::_pairs;
 std::vector<unsigned int> PmergeMe::_sortedData;
-std::vector<unsigned int> PmergeMe::_jacobsthalSequence;
+std::vector<unsigned int> PmergeMe::_indexPendInsertSequence;
+std::vector<unsigned int> PmergeMe::_pendSequence;
 
 unsigned int PmergeMe::_tail = 0;
 
@@ -26,6 +27,8 @@ std::vector<unsigned int> PmergeMe::FJMI(std::vector<unsigned int> unsortedData)
     InsertionSort();
     AddBiggerNumbersToSortedData();
     MergeSort();
+
+
     PrintSortedData();
     PrintUnsortedData();
     PrintJacobsthalSequence();
@@ -47,7 +50,6 @@ void PmergeMe::SortDataInPairs() {
 }
 
 void PmergeMe::InsertionSort() {
-    // 5 4 3 2 1
     for(int i = 1; i < _pairs.size(); i++) {
         int j = i;
         while(j > 0 && _pairs[j - 1].first > _pairs[j].first) {
@@ -65,6 +67,7 @@ void PmergeMe::AddBiggerNumbersToSortedData() {
 }
 
 void PmergeMe::PrintSortedData() {
+    std::cout << "Sorted data: ";
     for(int i = 0; i < _sortedData.size(); i++) {
         std::cout << _sortedData[i] << " ";
     }
@@ -72,30 +75,66 @@ void PmergeMe::PrintSortedData() {
 }
 
 void PmergeMe::MergeSort() {
+    CreatePandSequence();
     GetJacobsthalSequence();
 
 }
 
 void PmergeMe::GetJacobsthalSequence() {
-    _jacobsthalSequence.push_back(0);
-    _jacobsthalSequence.push_back(1);
-    for(int i = 2; i < _sortedData.size(); i++) {
-        _jacobsthalSequence.push_back(_jacobsthalSequence[i - 1] + 2 * _jacobsthalSequence[i - 2]);
+    bool isLastAddedWasJacobsthal = false;
+    std::vector<unsigned int> jecobsthalSequence;
+    if(_sortedData.size() == 1) {
+        return;
+    }
+    for(int i = 3; GetJacobsthalNumberByIndex(i) < _pendSequence.size() - 1; i++) {
+        jecobsthalSequence.push_back(GetJacobsthalNumberByIndex(i));
+    }
+    _indexPendInsertSequence.push_back(1);
+    for(int i = 1; i < _pendSequence.size() ; i++) {
+        if(jecobsthalSequence.size() != 0 && isLastAddedWasJacobsthal == false){
+            _indexPendInsertSequence.push_back(jecobsthalSequence[0]);
+            jecobsthalSequence.erase(jecobsthalSequence.begin());
+            isLastAddedWasJacobsthal = true;
+        }
+        for (std::vector<unsigned int>::iterator iit = _indexPendInsertSequence.begin() ; iit != _indexPendInsertSequence.end(); iit++ ){
+            if ( *iit == i )
+                i++;
+        }
+        _indexPendInsertSequence.push_back( i );
+        isLastAddedWasJacobsthal = false;
     }
 }
 
 void PmergeMe::PrintJacobsthalSequence() {
-    for(int i = 0; i < _jacobsthalSequence.size(); i++) {
-        std::cout << _jacobsthalSequence[i] << " ";
+    std::cout << "Jacobsthal sequence: ";
+    for(int i = 0; i < _indexPendInsertSequence.size(); i++) {
+        std::cout << _indexPendInsertSequence[i] << " ";
     }
     std::cout << std::endl;
 
 }
 
 void PmergeMe::PrintUnsortedData() {
-    for(int i = 0; i < _pairs.size(); i++) {
-        std::cout << _pairs[i].second << " ";
+    std::cout << "Unsorted data: ";
+    for(int i = 0; i < _pendSequence.size(); i++) {
+        std::cout << _pendSequence[i] << " ";
     }
     std::cout << std::endl;
 
+}
+
+unsigned long PmergeMe::GetJacobsthalNumberByIndex(int i) {
+    if(i == 0) {
+        return 0;
+    }
+    if(i == 1) {
+        return 1;
+    }
+    return GetJacobsthalNumberByIndex(i - 1) + 2 * GetJacobsthalNumberByIndex(i - 2);
+}
+
+void PmergeMe::CreatePandSequence() {
+for(int i = 1; i < _pairs.size(); i++) {
+    _pendSequence.push_back(_pairs[i].second);
+    }
 }

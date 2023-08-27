@@ -12,7 +12,8 @@ private:
     static std::vector<unsigned int> _unsortedData;
     static std::vector<std::pair<unsigned int, unsigned int> > _pairs;
     static std::vector<unsigned int> _sortedData;
-    static std::vector<unsigned int> _jacobsthalSequence;
+    static std::vector<unsigned int> _indexPendInsertSequence;
+    static std::vector<unsigned int> _pendSequence;
 
     PmergeMe();
     PmergeMe(PmergeMe const &other);
@@ -35,6 +36,10 @@ public:
     static void PrintJacobsthalSequence();
 
     static void PrintUnsortedData();
+
+    static unsigned long GetJacobsthalNumberByIndex(int i);
+
+    static void CreatePandSequence();
 };
 
 
