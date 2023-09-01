@@ -19,20 +19,14 @@ private:
     RPN & operator=( RPN const & rhs );
     ~RPN();
 
+    static void IsEmptyString(std::string string);
+    static void CheckStack(int condition);
+    static bool IsSign(char &i);
+    static void HandleSigns(char &sign);
+    static float GetTopNumber();
+    static void HandleWrongInput();
 public:
     static void calculate(const std::string &string );
-
-    static void IsEmptyString(std::string string);
-
-    static void CheckStack(int condition);
-
-    static bool IsSign(char &i);
-
-    static void HandleSigns(char &sign);
-
-    static float GetTopNumber();
-
-    static void HandleWrongInput();
 };
 
 

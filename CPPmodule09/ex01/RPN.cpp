@@ -33,7 +33,6 @@ void RPN::IsEmptyString(std::string string) {
     }
 }
 
-
 RPN::RPN() {
 
 }

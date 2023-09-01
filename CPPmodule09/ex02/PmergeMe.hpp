@@ -4,43 +4,23 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
-
+#include <list>
+#include "Tools.hpp"
 
 class PmergeMe {
-private:
-    static unsigned int _tail;
-    static std::vector<unsigned int> _unsortedData;
-    static std::vector<std::pair<unsigned int, unsigned int> > _pairs;
-    static std::vector<unsigned int> _sortedData;
-    static std::vector<unsigned int> _indexPendInsertSequence;
-    static std::vector<unsigned int> _pendSequence;
+protected:
+    int _containerType;
+    std::vector<int> _dataVector;
+    std::list<int> _dataList;
 
     PmergeMe();
-    PmergeMe(PmergeMe const &other);
-    PmergeMe &operator=(PmergeMe const &other);
-    ~PmergeMe();
-    static void FindTail();
-    static void SplitInPairs();
-    static void SortDataInPairs();
-    static void InsertionSort();
-    static void AddBiggerNumbersToSortedData();
-    static void PrintSortedData();
+    PmergeMe(const PmergeMe &copy);
+    PmergeMe &operator=(const PmergeMe &copy);
 public:
-    static std::vector<unsigned int> FJMI(std::vector<unsigned int> unsortedData);
-
-
-    static void MergeSort();
-
-    static void GetJacobsthalSequence();
-
-    static void PrintJacobsthalSequence();
-
-    static void PrintUnsortedData();
-
-    static unsigned long GetJacobsthalNumberByIndex(int i);
-
-    static void CreatePandSequence();
+    virtual ~PmergeMe();
+    void SetContainerType(int type);
+    static void FJMI(std::vector<int> &unsortedData, int containerType);
+    static void FJMI(std::list<int> &unsortedData, int containerType);
 };
-
 
 #endif //C__CIRCLE_PMERGEME_HPP

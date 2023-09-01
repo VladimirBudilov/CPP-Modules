@@ -1,6 +1,6 @@
-NAME 		=	ex00
+NAME 		=	PmergeMe
 CC 			=	c++
-CPPFLAGS 	=	-std=c++98 #-Wall -Wextra -Werror -pedantic
+CPPFLAGS 	=	-std=c++98 -Wall -Wextra -Werror -pedantic
 SRCS 		=	$(wildcard *.cpp)
 HEADER		=	$(wildcard *.h)
 OBJS 		=	$(patsubst %.cpp, %.o, $(SRCS))
